@@ -9,7 +9,7 @@
 
   <meta property="og:title" content="The Fish Hockey Club">
   <meta property="og:description" content="Our 2026–27 schedule and next game.">
-  <meta property="og:image" content="assets/team-photo.jpg">
+  <meta property="og:image" content="assets/icon-512.png">
 
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -30,7 +30,8 @@
     </a>
     <nav class="site-nav" aria-label="Sections">
       <a href="#schedule">Schedule</a>
-      <a href="#team">Team</a>
+      <a href="#tourney">Tourney</a>
+      <a href="#legends">Legends</a>
     </nav>
   </header>
 
@@ -42,6 +43,9 @@
         <p class="next-loading">Loading schedule…</p>
       </div>
     </section>
+
+    <!-- Tournament weekend (filled in by js/tournament.js; hides itself afterwards) -->
+    <section class="tourney" id="tourney"></section>
 
     <section class="schedule" id="schedule">
       <div class="section-head">
@@ -66,10 +70,17 @@
       </div>
     </section>
 
+    <section class="legends" id="legends">
+      <h2>Legends Board</h2>
+      <p class="legends-sub">No names. They know who they are.</p>
+      <div id="legends-list"></div>
+    </section>
+
     <section class="team" id="team">
       <h2>The Team</h2>
       <figure>
-        <img src="assets/team-photo.jpg" alt="The Fish team photo on the ice in their light blue jerseys" width="1280" height="959" loading="lazy">
+        <img src="assets/team-wins-2025-26.jpg" alt="Collage of four team photos from our 2025–26 wins, including a trophy win and a Wiarton Willie Weekend Hockey Tournament Champions banner" width="900" height="1604" loading="lazy">
+        <figcaption>Every win from last season, 2025–26</figcaption>
       </figure>
     </section>
   </main>
@@ -80,6 +91,8 @@
   </footer>
 
   <script src="js/schedule.js"></script>
+  <script src="js/tournament.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/legends.js"></script>
 </body>
 </html>

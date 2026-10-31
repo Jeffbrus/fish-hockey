@@ -75,6 +75,14 @@ h2 {
   padding: 10px 8px;
 }
 .site-nav a:hover { color: var(--ice); }
+.brand-text { white-space: nowrap; }
+
+@media (max-width: 400px) {
+  .brand img { width: 48px; }
+  .brand-name { font-size: 1.4rem; }
+  .site-nav { gap: 0; }
+  .site-nav a { font-size: .85rem; letter-spacing: .04em; padding: 10px 6px; }
+}
 
 main { max-width: 720px; margin: 0 auto; padding: 0 var(--gutter); }
 
@@ -279,10 +287,67 @@ main { max-width: 720px; margin: 0 auto; padding: 0 var(--gutter); }
 .cal-all { display: grid; gap: 12px; margin-top: 18px; justify-items: center; }
 .pdf-link { font-size: .9rem; color: var(--muted); }
 
+/* ---------- Tournament ---------- */
+.tourney { padding: 28px 0 8px; }
+.tourney .eyebrow { color: var(--gold); margin-bottom: 4px; }
+.sub-head {
+  margin: 18px 0 10px;
+  font: 800 1.15rem var(--head);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--jersey-blue);
+}
+.tourney-note { margin: 10px 0 14px; color: var(--muted); font-size: .9rem; }
+
+.fold { margin-top: 10px; border-radius: var(--radius); background: var(--charcoal-2); }
+.fold > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: 0 16px;
+  cursor: pointer;
+  list-style: none;
+  font: 700 1.15rem var(--head);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::after { content: "+"; color: var(--fish-blue); font-size: 1.5rem; line-height: 1; }
+.fold[open] > summary::after { content: "–"; }
+.fold[open] { padding-bottom: 12px; }
+.fold .day { margin: 0 12px 8px; background: var(--charcoal); }
+.fold .pdf-link { margin: 10px 16px 0; }
+
+.rules { margin: 0 16px; }
+.rules dt { margin-top: 12px; font-weight: 600; color: var(--ice); }
+.rules dt:first-child { margin-top: 0; }
+.rules dd { margin: 2px 0 0; color: var(--silver); font-size: .95rem; }
+
+.duty h4 { margin: 14px 16px 6px; font: 700 1.05rem var(--head); text-transform: uppercase; letter-spacing: .06em; color: var(--jersey-blue); }
+.duty:first-child h4 { margin-top: 2px; }
+.duty-info { margin: 0 16px 8px; color: var(--silver); font-size: .9rem; }
+.row.shift { grid-template-columns: 40px 1fr; }
+.row.shift .note { color: var(--silver); }
+
+/* ---------- Legends Board ---------- */
+.legends { padding: 28px 0 8px; }
+.legends-sub { margin: 4px 0 14px; color: var(--muted); font-weight: 600; }
+#legends-list { display: grid; gap: 16px; }
+
+.legend { border-radius: var(--radius); background: var(--charcoal-2); overflow: hidden; }
+.legend-stage { aspect-ratio: 16 / 9; background: var(--charcoal); border-bottom: 4px solid var(--gold); }
+.legend-for { margin: 0 0 2px; font: 700 .8rem var(--head); text-transform: uppercase; letter-spacing: .18em; color: var(--gold); }
+.legend-stage video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.legend-body { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px 12px 16px; }
+.legend-body h3 { margin: 0; font: 800 1.35rem/1.1 var(--head); text-transform: uppercase; letter-spacing: .03em; }
+.legend-replay { width: auto; min-height: 40px; padding: 8px 14px; }
+
 /* ---------- Team ---------- */
 .team { padding: 28px 0 8px; }
 .team h2 { margin-bottom: 14px; }
-.team figure { margin: 0; border-radius: var(--radius); overflow: hidden; border-bottom: 6px solid var(--gold); }
+.team figure { margin: 0; border-radius: var(--radius); overflow: hidden; border-bottom: 6px solid var(--gold); background: var(--charcoal-2); }
+.team figcaption { padding: 10px 14px; color: var(--silver); font-weight: 600; font-size: .95rem; }
 
 /* ---------- Footer ---------- */
 .site-footer {

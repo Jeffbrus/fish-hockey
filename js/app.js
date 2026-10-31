@@ -14,7 +14,7 @@
   try { state.view = localStorage.getItem("fish-view") || "ours"; } catch (e) {}
 
   // ---------- Data ----------
-  function toGame(row, roundName) {
+  function toGame(row, roundName, minutes) {
     var d = row[0].split("-").map(Number);
     var t = row[1].split(":").map(Number);
     var start = new Date(d[0], d[1] - 1, d[2], t[0], t[1]);
@@ -22,7 +22,7 @@
       date: row[0], time: row[1], a: row[2], b: row[3],
       score: row[4] || null, note: row[5] || "",
       round: roundName, start: start,
-      end: new Date(start.getTime() + GAME_MINUTES * 60000),
+      end: new Date(start.getTime() + (minutes || GAME_MINUTES) * 60000),
       ours: row[2] === US || row[3] === US,
     };
   }
@@ -36,6 +36,16 @@
   });
   var allGames = [].concat.apply([], rounds.map(function (r) { return r.games; }));
   var ourGames = allGames.filter(function (g) { return g.ours; });
+
+  // Our tournament games (js/tournament.js) join Next game, Our games and the calendar, not All league.
+  var T = window.TOURNEY;
+  if (T) {
+    T.games.forEach(function (g) {
+      if (g[3] === US || g[4] === US) ourGames.push(toGame([g[1], g[2], g[3], g[4], null, "Game " + g[0]], T.name, T.minutes));
+    });
+    ourGames.sort(function (x, y) { return x.start - y.start; });
+  }
+
   var firstPlayoff = allGames.filter(function (g) { return g.a === "TBD"; })[0];
 
   function isPast(g) { return g.end < new Date(); }

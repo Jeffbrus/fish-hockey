@@ -8,9 +8,12 @@ A simple, mobile-first website for The Fish rec league hockey team: next game, o
 index.html          the page
 css/style.css       styles (team colours are at the top)
 js/schedule.js      the schedule. Edit this file to update games and scores.
+js/tournament.js    tournament weekend: games, rules, team duties (hides itself after the event)
+js/legends.js       Legends Board: which section of assets/fish-tales.mp4 each legend plays
 js/app.js           renders the schedule, next game, record and calendar downloads
-assets/             web-sized logo, icons, team photo, league PDF
-source/             original full-size logo and photo
+assets/             web-sized logo, icons, photos, film, PDFs
+source/             original full-size images
+private/            not published (ignored by git): files that shouldn't be public
 ```
 
 ## Updating the schedule
