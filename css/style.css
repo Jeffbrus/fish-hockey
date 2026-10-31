@@ -368,6 +368,8 @@ main { max-width: 720px; margin: 0 auto; padding: 0 var(--gutter); }
   font-size: .9rem;
 }
 .site-footer p { margin: 0; }
+/* The logo's weight sits left of its edges (thin bill on the right): nudge it so it looks centred */
+.site-footer img { transform: translateX(6.6%); }
 
 /* ---------- Bigger screens ---------- */
 @media (min-width: 600px) {
