@@ -49,8 +49,9 @@ h2 {
   z-index: 10;
   display: flex;
   align-items: center;
+  flex-wrap: wrap; /* if the links ever can't fit beside the logo, they drop below it instead of overlapping */
   justify-content: space-between;
-  gap: 12px;
+  gap: 0 12px;
   padding: 8px var(--gutter);
   padding-top: max(8px, env(safe-area-inset-top));
   background: rgba(28, 29, 31, .92);
@@ -59,13 +60,13 @@ h2 {
   border-bottom: 3px solid var(--fish-blue);
 }
 
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ice); }
+.brand { display: flex; flex-shrink: 0; align-items: center; gap: 10px; text-decoration: none; color: var(--ice); }
 .brand img { width: 60px; height: auto; }
-.brand-text { display: flex; flex-direction: column; line-height: .95; }
+.brand-text { display: flex; flex-direction: column; line-height: .95; white-space: nowrap; }
 .brand-name { font: 800 1.6rem var(--head); text-transform: uppercase; letter-spacing: .03em; }
 .brand-sub { font: 600 .8rem var(--head); text-transform: uppercase; letter-spacing: .18em; color: var(--jersey-blue); }
 
-.site-nav { display: flex; gap: 4px; }
+.site-nav { display: flex; gap: 4px; margin-left: auto; }
 .site-nav a {
   font: 700 .95rem var(--head);
   text-transform: uppercase;
@@ -75,13 +76,17 @@ h2 {
   padding: 10px 8px;
 }
 .site-nav a:hover { color: var(--ice); }
-.brand-text { white-space: nowrap; }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .brand img { width: 48px; }
   .brand-name { font-size: 1.4rem; }
   .site-nav { gap: 0; }
   .site-nav a { font-size: .85rem; letter-spacing: .04em; padding: 10px 6px; }
+}
+
+/* Small phones and iPhone Display Zoom: the logo alone, so the links fit on one row */
+@media (max-width: 370px) {
+  .brand-text { display: none; }
 }
 
 main { max-width: 720px; margin: 0 auto; padding: 0 var(--gutter); }
